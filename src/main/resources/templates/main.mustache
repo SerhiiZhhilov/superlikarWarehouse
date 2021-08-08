@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello </title>
+</head>
+<body>
+    <div>
+        <a href="/">Go to index</a>
+    </div>
+    <div>
+        <form action="/logout" method="post">
+            <input type="submit" value="logout">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        </form>
+    </div>
+    <b2>Enter barcode here:</b2>
+    <div>
+        <form method="post" action="addBarcode">
+            <input type = "text" name = "barcode" placeholder="Barcode">
+            <br>
+            <input type = "text" name = "description" placeholder="Barcode" value="Gloves">
+            <button type="submit">Create</button>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        </form>
+
+    </div>
+
+    <b2>Filter here:</b2>
+    <div>
+        <form method="post" action="filterBarcode">
+            <input type="text" name = "barcodeDescription" placeholder="Description">
+            <button type="submit">Filter</button>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        </form>
+
+    </div>
+
+    <b2>Barcode list:</b2>
+    <div>
+        {{#barcodes}}
+            <div>
+                <b>{{code}}</b>
+                <span>{{description}}</span>
+            </div>
+        {{/barcodes}}
+    </div>
+
+</body>
+</html>

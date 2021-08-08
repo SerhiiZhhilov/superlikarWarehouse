@@ -1,0 +1,24 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+      #      ddl-auto: update
+      #      ddl-auto: none
+    show-sql: true
+    generate-ddl: true
+  mustache:
+    expose-request-attributes: true
+
+
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/superlikarDB
+    username: superlikarUSER
+    password: superlikar
+    #    schema: superlikar
+
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+      schema: superlikarSCHEMA
+
